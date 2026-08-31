@@ -1,0 +1,86 @@
+{
+  "skill_name": "seo-optimization",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you do an SEO audit on my website? The URL is https://www.nytimes.com — I've been trying to rank better but I'm not sure what's holding me back.",
+      "expected_output": "A full SEO audit report with a numeric Overall Score (0-100), a Score Breakdown table across all 6 categories (Technical SEO, On-Page SEO, Structured Data, Social/Open Graph, Performance Signals, Crawlability), a Critical Issues section, a Quick Wins section, a Recommendations section, and an Implementation Roadmap with Now/Next/Later tiers. The skill should use WebFetch to retrieve the URL and also attempt to fetch robots.txt and sitemap.xml. At least one concrete code example should be provided for a fix. Additionally, the report should include an AI Search Readiness score with its own score breakdown across 5 AI categories (G-K), AI Critical Issues, AI Quick Wins, and an AI Implementation Roadmap.",
+      "files": [],
+      "expectations": [
+        "The report includes a numeric Overall Score between 0 and 100",
+        "The report includes a Score Breakdown table with all 6 categories: Technical SEO, On-Page SEO, Structured Data, Social/Open Graph, Performance Signals, and Crawlability",
+        "The report has a Critical Issues section (even if it says 'None found')",
+        "The report has a Quick Wins section (even if it says 'None found')",
+        "The report has an Implementation Roadmap with at least two time horizons (Now/Next or similar)",
+        "At least one code example is provided as a concrete fix",
+        "The skill used WebFetch to retrieve the URL content before analyzing",
+        "The report includes an AI Search Readiness Score between 0 and 100",
+        "The report includes an AI Score Breakdown table with all 5 AI categories: AI Crawler Access, AI Content Readiness, AI Structured Data, AI Authority & Trust, and AI Technical",
+        "The report has an AI Critical Issues section (even if it says 'None found')"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have a local web project I'm about to deploy and want to make sure the SEO is solid. The project is in the folder /home/user/projects/landing-page/. It's a SaaS product landing page for a project management tool.",
+      "expected_output": "An SEO audit that uses Glob or Read to discover and analyze local HTML files. Should produce the same structured report as a URL audit. Should flag pre-deployment concerns like missing canonical tags, missing robots.txt, missing sitemap.xml, and any HTTP links that would become mixed content. Should acknowledge this is a pre-deployment audit of local files. Should also produce an AI Search Readiness audit checking for llms.txt, AI bot permissions in robots.txt, content extractability, and AI-relevant schema.",
+      "files": [],
+      "expectations": [
+        "The skill attempts to discover HTML files using Glob or a similar approach rather than assuming a single hardcoded filename",
+        "The report includes a numeric Overall Score between 0 and 100",
+        "The report includes a Score Breakdown table with all 6 categories",
+        "The report checks for robots.txt and sitemap.xml and notes if they are missing (as a pre-deployment concern)",
+        "The report has a Critical Issues section and a Quick Wins section",
+        "The report includes at least one pre-deployment-specific recommendation (e.g., creating sitemap.xml, setting canonical tags, verifying HTTPS after deployment)",
+        "The report includes an AI Search Readiness Score between 0 and 100",
+        "The report includes an AI Score Breakdown table with all 5 AI categories",
+        "The report checks for llms.txt at the project root and notes if it is missing"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "please audit the seo on https://web.dev/articles/vitals — it's a technical article I wrote about core web vitals and I already added some schema markup. want to make sure everything is solid before I share it widely.",
+      "expected_output": "An SEO audit focused on a blog/article page. Should identify the content type as an article and check for Article or BlogPosting schema. Should validate the existing structured data for completeness and syntax correctness (headline, author, datePublished, image fields). Should check social sharing tags since the user explicitly mentions sharing. Should analyze keyword targeting around 'core web vitals' or similar. Full structured report with all sections. Should also include an AI Search Readiness audit evaluating author markup depth, content extractability, speakable schema, and freshness signals.",
+      "files": [],
+      "expectations": [
+        "The report includes a numeric Overall Score between 0 and 100",
+        "The report specifically evaluates the structured data (JSON-LD) and checks whether Article or BlogPosting schema is used with the correct required fields",
+        "The report checks for og:image and twitter:card tags given the user mentions sharing the article",
+        "The report has a Score Breakdown table with all 6 categories",
+        "The Structured Data category result reflects whether the existing schema markup is correct or has issues",
+        "The inferred primary keyword relates to Core Web Vitals, performance, or web vitals (matches the article topic)",
+        "The report has a Critical Issues section and a Quick Wins section",
+        "The report includes an AI Search Readiness Score between 0 and 100",
+        "The report includes an AI Score Breakdown table with all 5 AI categories",
+        "The AI audit evaluates author markup and content extractability for the article page type"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Audit https://www.example.com for AI search readiness — I want to make sure ChatGPT and Perplexity can find and cite my site.",
+      "expected_output": "A dual audit with both Google SEO and AI Search Readiness scores. The AI section should check robots.txt for AI bot permissions (GPTBot, PerplexityBot, ClaudeBot, etc.), check for llms.txt, evaluate content extractability, and check for AI-relevant structured data. Should produce both Google and AI action plans.",
+      "files": [],
+      "expectations": [
+        "The skill triggers on the AI-related language in the prompt",
+        "The report includes both a Google SEO Overall Score and an AI Search Readiness Score",
+        "The AI report checks robots.txt for specific AI bot user-agents (GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended)",
+        "The report checks for llms.txt presence",
+        "The AI Score Breakdown table includes all 5 AI categories",
+        "Both a Google Action Plan and an AI Action Plan are produced"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I have a local website project at /home/user/projects/agency-site/. It's a marketing agency website. Check both the regular SEO and AI search readiness before I deploy.",
+      "expected_output": "A dual audit of local files. Should discover HTML files, check for robots.txt and llms.txt at project root. Should evaluate content for AI extractability, check for semantic HTML, and verify schema depth. Pre-deployment AI recommendations should include creating llms.txt and ensuring robots.txt allows AI bots.",
+      "files": [],
+      "expectations": [
+        "The skill attempts to find llms.txt at the project root alongside robots.txt and sitemap.xml",
+        "The report includes both Google and AI scores",
+        "The AI report flags missing llms.txt as a finding",
+        "The report includes AI-specific pre-deployment recommendations (allow AI bots, create llms.txt)",
+        "The AI Score Breakdown table includes all 5 AI categories",
+        "Both action plans are produced with specific file paths from the local project"
+      ]
+    }
+  ]
+}

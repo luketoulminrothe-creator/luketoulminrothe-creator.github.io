@@ -1,0 +1,14 @@
+{
+  "name": "spedersen-toemrer-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DancePointe — single-page marketing site",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.0"
+  }
+}

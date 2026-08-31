@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   NAVIGATION — shared across all pages
+   ============================================================ */
+
+.nav-bar {
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-bar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 24px rgba(27, 42, 74, 0.08);
+}
+.nav-bar.scrolled .nav-link { color: #1A1A1A; }
+.nav-bar.scrolled .nav-logo { color: #1A1A1A; }
+.nav-bar.scrolled .hamburger span { background: #1A1A1A; }
+.nav-bar.scrolled .btn-phone {
+  border-color: #1A1A1A !important;
+  color: #1A1A1A !important;
+}
+.nav-bar.scrolled .btn-phone:hover {
+  background: #1A1A1A !important;
+  color: white !important;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  clip-path: circle(0% at calc(100% - 40px) 32px);
+  transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu.open {
+  clip-path: circle(150% at calc(100% - 40px) 32px);
+}
+
+/* Hamburger */
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Buttons (shared) */
+.btn-primary {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 36, 104, 0.35);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-outline {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease, color 0.25s ease;
+}
+.btn-outline:hover {
+  background: white;
+  color: #1A1A1A;
+  transform: translateY(-2px);
+}
+.btn-outline:active { transform: translateY(0); }
+
+/* Sticky floating CTA — shared across all pages */
+.sticky-cta {
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.sticky-cta.visible:hover {
+  transform: translateY(-2px) scale(1);
+  box-shadow: 0 8px 24px rgba(168, 36, 104, 0.35);
+}
+.sticky-cta.visible:active {
+  transform: translateY(0) scale(1);
+}
+
+/* Ydelser dropdown */
+.nav-dropdown-panel {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-dropdown:hover .nav-dropdown-panel,
+.nav-dropdown:focus-within .nav-dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}

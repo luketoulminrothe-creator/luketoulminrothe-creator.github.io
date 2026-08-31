@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DancePointe | Dance School in Grantham, Lincolnshire</title>
+  <meta name="description" content="Dance school in Grantham, Lincolnshire. Ballet, tap, modern, street, acro and musical theatre for ages 2.5 to adult. Graded exams, festivals, annual show.">
+  <meta property="og:title" content="DancePointe | Grantham's premier dance school">
+  <meta property="og:description" content="Grantham dance school for ages 2.5 to adult. Ballet, tap, modern, street, acro and musical theatre.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://www.dancepointegrantham.com/">
+  <meta property="og:image" content="https://www.dancepointegrantham.com/brand-assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="DancePointe">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DancePointe | Grantham's premier dance school">
+  <meta name="twitter:description" content="Grantham dance school for ages 2.5 to adult. Ballet, tap, modern, street, acro and musical theatre.">
+  <meta name="twitter:image" content="https://www.dancepointegrantham.com/brand-assets/og-image.jpg">
+  <link rel="canonical" href="https://www.dancepointegrantham.com/">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#A82468">
+
+  <link rel="preload" as="image" href="/brand-assets/hero.webp" fetchpriority="high">
+
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/dmsans-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/dmserif-400-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: #1A1A1A;
+      background: #FBF4F8;
+      overflow-x: hidden;
+    }
+
+    /* Scroll animations */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    [data-animate-stagger] > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-animate-stagger].visible > *:nth-child(1) { transition-delay: 0ms; }
+    [data-animate-stagger].visible > *:nth-child(2) { transition-delay: 80ms; }
+    [data-animate-stagger].visible > *:nth-child(3) { transition-delay: 160ms; }
+    [data-animate-stagger].visible > *:nth-child(4) { transition-delay: 240ms; }
+    [data-animate-stagger].visible > *:nth-child(5) { transition-delay: 320ms; }
+    [data-animate-stagger].visible > *:nth-child(6) { transition-delay: 400ms; }
+    [data-animate-stagger].visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Nav transition */
+    .nav-bar {
+      transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-bar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 24px rgba(27, 42, 74, 0.08);
+    }
+    .nav-bar.scrolled .nav-link { color: #1A1A1A; }
+    .nav-bar.scrolled .nav-logo { color: #1A1A1A; }
+    .nav-bar.scrolled .nav-wordmark > span:first-child { color: #1A1A1A; }
+    .nav-bar.scrolled .nav-wordmark > span:last-child { color: rgba(26,26,26,0.55); }
+    .nav-bar.scrolled .hamburger span { background: #1A1A1A; }
+    .nav-bar.scrolled .btn-phone {
+      border-color: #1A1A1A !important;
+      color: #1A1A1A !important;
+    }
+    .nav-bar.scrolled .btn-phone:hover {
+      background: #1A1A1A !important;
+      color: white !important;
+    }
+
+    /* Hero scroll indicator */
+    @keyframes bounce-subtle {
+      0%, 100% { transform: translateY(0) translateX(-50%); }
+      50% { transform: translateY(10px) translateX(-50%); }
+    }
+    .scroll-indicator { animation: bounce-subtle 2.5s ease-in-out infinite; }
+
+    /* Service card hover */
+    .service-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(27, 42, 74, 0.1), 0 4px 16px rgba(27, 42, 74, 0.06);
+    }
+
+    /* Joinings connector line */
+    .process-line {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      right: -50%;
+      height: 2px;
+      background: linear-gradient(90deg, #A82468, #A8246866);
+    }
+
+    /* FAQs accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-answer.open {
+      max-height: 800px;
+    }
+    .faq-chevron {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* Gallery */
+    .gallery-img {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      clip-path: circle(0% at calc(100% - 40px) 32px);
+      transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.open {
+      clip-path: circle(150% at calc(100% - 40px) 32px);
+    }
+
+    /* Hamburger */
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: white;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Button hover */
+    .btn-primary {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(168, 36, 104, 0.35);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.25s ease, color 0.25s ease;
+    }
+    .btn-outline:hover {
+      background: white;
+      color: #1A1A1A;
+      transform: translateY(-2px);
+    }
+    .btn-outline:active { transform: translateY(0); }
+
+    /* Form focus */
+    .form-input {
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #A82468;
+      box-shadow: 0 0 0 3px rgba(212, 148, 58, 0.15);
+    }
+
+    /* Grain overlay */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml, %3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px;
+    }
+
+    /* Smooth section padding */
+    .section-pad {
+      padding: 96px 24px;
+    }
+    @media (min-width: 768px) {
+      .section-pad { padding: 128px 48px; }
+    }
+
+    /* Selection color */
+    ::selection {
+      background: #A8246833;
+      color: #1A1A1A;
+    }
+
+  </style>
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "EducationalOrganization"],
+    "@id": "https://www.dancepointegrantham.com/#business",
+    "name": "DancePointe",
+    "alternateName": "DancePointe Grantham",
+    "description": "DancePointe is a dance school in Grantham, Lincolnshire, teaching classical ballet, modern, contemporary, tap, street, acrobatics and musical theatre to students from 2.5 years to adult, from first classes through graded examinations to pre-vocational and pre-professional training.",
+    "url": "https://www.dancepointegrantham.com",
+    "logo": "https://www.dancepointegrantham.com/brand-assets/logo-mark.png",
+    "image": "https://www.dancepointegrantham.com/brand-assets/og-image.jpg",
+    "telephone": "+447515571655",
+    "email": "info@dancepointegrantham.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5 Swinegate",
+      "addressLocality": "Grantham",
+      "postalCode": "NG31 6RJ",
+      "addressRegion": "Lincolnshire",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 52.9124,
+      "longitude": -0.6406
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Grantham" },
+      { "@type": "City", "name": "Barrowby" },
+      { "@type": "City", "name": "Great Gonerby" },
+      { "@type": "City", "name": "Belton" },
+      { "@type": "City", "name": "Harlaxton" },
+      { "@type": "City", "name": "Denton" },
+      { "@type": "City", "name": "Woolsthorpe-by-Belvoir" },
+      { "@type": "City", "name": "Sedgebrook" },
+      { "@type": "City", "name": "Bottesford" },
+      { "@type": "City", "name": "Long Bennington" },
+      { "@type": "City", "name": "Claypole" },
+      { "@type": "City", "name": "Caythorpe" },
+      { "@type": "City", "name": "Ancaster" },
+      { "@type": "City", "name": "Colsterworth" },
+      { "@type": "City", "name": "Corby Glen" },
+      { "@type": "City", "name": "Sleaford" }
+    ],
+    "priceRange": "££",
+    "currenciesAccepted": "GBP",
+    "paymentAccepted": "Monthly standing order, termly payment, cash, cheque",
+    "knowsLanguage": ["en"],
+    "sameAs": [
+      "https://www.instagram.com/dancepointegrantham/",
+      "https://www.facebook.com/dancepointegrantham/"
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "16:00",
+        "closes": "20:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "09:00",
+        "closes": "16:30"
+      }
+    ],
+    "founder": { "@id": "https://www.dancepointegrantham.com/#rosie" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Seven styles under one roof",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ballet", "url": "https://www.dancepointegrantham.com/ballet-classes", "description": "Classical ballet classes in Grantham for ages 2.5 to adult, covering Intro and Primary Ballet, Grades 1 to 6, and Pre-Vocational Ballet 1 and Advanced 2.", "serviceType": "Classical ballet tuition", "areaServed": "south Lincolnshire" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tap", "url": "https://www.dancepointegrantham.com/tap-classes", "description": "Tap dance classes in Grantham from Primary Tap through Grades 1 to 6 and on to Advanced Tap, for children and adults.", "serviceType": "Tap dance tuition", "areaServed": "south Lincolnshire" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Modern & Lyrical", "url": "https://www.dancepointegrantham.com/modern-and-lyrical", "description": "Modern theatre, lyrical and contemporary dance classes in Grantham, from Grade 1 Modern through Advanced 2, including an Intermediate Modern examination class.", "serviceType": "Modern theatre and lyrical dance tuition", "areaServed": "south Lincolnshire" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acro", "url": "https://www.dancepointegrantham.com/acro-classes", "description": "Acrobatic dance classes in Grantham at Junior, Intermediate, Senior and two Advanced levels, teaching strength, flexibility and controlled acrobatic skills.", "serviceType": "Acrobatic dance tuition", "areaServed": "south Lincolnshire" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Street & Commercial", "url": "https://www.dancepointegrantham.com/street-dance", "description": "Street and commercial dance classes in Grantham at Junior, Intermediate and Senior level, taught by a professional touring dancer and choreographer.", "serviceType": "Street and commercial dance tuition", "areaServed": "south Lincolnshire" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Musical Theatre & Singing", "url": "https://www.dancepointegrantham.com/musical-theatre", "description": "Musical theatre and singing classes in Grantham, including Stage & Song, Junior Musical Theatre and Senior Musical, taught by a mezzo-soprano and musical director.", "serviceType": "Musical theatre and singing tuition", "areaServed": "south Lincolnshire" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Schema.org Person (Simon) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.dancepointegrantham.com/#rosie",
+    "name": "Rosie Johnson",
+    "jobTitle": "School Principal",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Ages 2.5 to adult",
+      "name": "Qualified teacher of Classical Ballet, Modern Theatre, Jazz, Tap and Acrobatic Arts"
+    },
+    "worksFor": { "@id": "https://www.dancepointegrantham.com/#business" },
+    "knowsAbout": ["Ballet", "Tap", "Modern & Lyrical", "Acro", "Street & Commercial", "Musical Theatre & Singing", "Acrobatic arts", "Festival and competition coaching"]
+  }
+  </script>
+
+  <!-- Schema.org WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.dancepointegrantham.com/#website",
+    "url": "https://www.dancepointegrantham.com/",
+    "name": "DancePointe",
+    "inLanguage": "en-GB",
+    "publisher": { "@id": "https://www.dancepointegrantham.com/#business" },
+    "dateModified": "2026-04-18"
+  }
+  </script>
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What styles of dance do you offer?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Classical Ballet, Modern, Contemporary, Tap, Street, Acrobatics and Musical Theatre, with singing taught alongside the musical theatre classes. Lyrical runs at Inter, Senior and Advanced level. Most students start with one or two styles and add more as they go." }
+      },
+      {
+        "@type": "Question",
+        "name": "What ages do you teach?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We teach children from 2.5 years old, and we teach adults. Intro Ballet & Tap on a Saturday morning is where the youngest dancers start. Please ring to check what is currently running for adults, as the adult timetable moves around more than the children's does." }
+      },
+      {
+        "@type": "Question",
+        "name": "What level class should we attend?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We offer classes for all levels. Please consult with the School Principal, who will advise you which level class to attend and ensure that you are placed in a level which will benefit you the most. Nobody is put in a class on age alone." }
+      },
+      {
+        "@type": "Question",
+        "name": "I would like to do dance competitions. How can I get involved?",
+        "acceptedAnswer": { "@type": "Answer", "text": "To be invited to join the school's competitive team, students are required to demonstrate a high level of commitment to dance and a specific level of proficiency. The School Principal will invite students to take part who have the appropriate level. We compete on the festival circuit through the year, most recently at the Nottingham Dance Festival." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you do shows?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each year we present an annual show which involves the entire school, staged at the Guildhall Arts Centre in Grantham. Past shows include Dance Dynamics, Dance Spectacular, In The Spotlight, A Dance Celebration and United in Dance. Every student who wants to be in it is in it." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do classes cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "One class a week is £25 a month by standing order over twelve months. Two classes are £38, three are £57, and it rises by £19 for each class after that, up to £209 for eleven. Anything you take beyond eleven classes is free. Paying by term costs more. The full tables are on the timetable and fees page." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are you, and when do classes run?",
+        "acceptedAnswer": { "@type": "Answer", "text": "5 Swinegate, Grantham NG31 6RJ, in the middle of town. Weekday classes run from 4.00pm, Saturday classes run from 9.00am, and there are no Sunday classes. The full week is on the timetable and fees page." }
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- NAVIGATION                                    -->
+  <!-- ============================================ -->
+  <nav class="nav-bar fixed top-0 left-0 w-full z-50 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#" class="nav-logo flex items-center gap-3 flex-shrink-0">
+        <img src="brand-assets/logo-mark.png" alt="DancePointe Grantham" width="204" height="208" class="w-auto" style="height: 46px;">
+        <span class="nav-wordmark leading-none">
+          <span class="block font-bold text-white text-lg tracking-[0.14em] uppercase">DancePointe</span>
+          <span class="block text-white/60 text-[10px] tracking-[0.32em] uppercase mt-0.5">Grantham</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden xl:flex items-center gap-6" style="white-space:nowrap">
+        <a href="#om-os" class="nav-link text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200">The school</a>
+        <div class="nav-dropdown relative">
+          <a href="#ydelser" class="nav-link inline-flex items-center gap-1 text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200">
+            Classes
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown-panel absolute top-full left-1/2 pt-4 w-60">
+            <div class="bg-white rounded-xl shadow-2xl border border-gray-100 py-2 overflow-hidden">
+              <a href="/#ydelser" class="block px-5 py-3 text-sm font-medium tracking-wide uppercase text-ink hover:bg-cream transition-colors duration-200">All classes</a>
+              <div class="border-t border-gray-100 my-1"></div>
+              <a href="/ballet-classes" class="block px-5 py-3 text-sm font-medium tracking-wide uppercase text-ink hover:bg-cream transition-colors duration-200">Ballet</a>
+              <a href="/tap-classes" class="block px-5 py-3 text-sm font-medium tracking-wide uppercase text-ink hover:bg-cream transition-colors duration-200">Tap</a>
+              <a href="/modern-and-lyrical" class="block px-5 py-3 text-sm font-medium tracking-wide uppercase text-ink hover:bg-cream transition-colors duration-200">Modern & Lyrical</a>
+              <a href="/acro-classes" class="block px-5 py-3 text-sm font-medium tracking-wide uppercase text-ink hover:bg-cream transition-colors duration-200">Acro</a>
+              <a href="/street-dance" class="block px-5 py-3 text-sm font-medium tracking-wide uppercase text-ink hover:bg-cream transition-colors duration-200">Street &amp; Commercial</a>
+              <a href="/musical-theatre" class="block px-5 py-3 text-sm font-medium tracking-wide uppercase text-ink hover:bg-cream transition-colors duration-200">Musical Theatre &amp; Singing</a>
+
+            </div>
+          </div>
+        </div>
+        <a href="/timetable" class="nav-link text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200">Timetable</a>
+        <a href="/fees" class="nav-link text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200">Fees</a>
+        <a href="/gallery" class="nav-link text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200">Gallery</a>
+        <a href="#faq" class="nav-link text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200">FAQs</a>
+        <a href="/contact" class="nav-link text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200">Contact</a>
+        <div class="flex items-center gap-2">
+          <a href="#" data-quote-trigger class="btn-primary inline-block bg-brand text-white font-bold text-sm px-8 py-4 rounded-lg tracking-wide uppercase">Enquire now</a>
+          <a href="tel:+447515571655" class="btn-phone btn-outline inline-flex items-center gap-1.5 border-2 border-white/30 text-white font-bold text-sm px-8 py-4 rounded-lg tracking-wide uppercase">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>07515 571655</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger xl:hidden flex flex-col justify-center items-center gap-[5px] w-10 h-10 relative z-[60]" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu fixed inset-0 z-[55] bg-dark flex flex-col items-center gap-1">
+    <a href="#om-os" class="mobile-nav-link text-white text-2xl font-display">The school</a>
+    <a href="#ydelser" class="mobile-nav-link text-white text-2xl font-display">Classes</a>
+    <a href="/ballet-classes" class="mobile-nav-link text-white/70 text-lg font-display">Ballet</a>
+    <a href="/tap-classes" class="mobile-nav-link text-white/70 text-lg font-display">Tap</a>
+    <a href="/modern-and-lyrical" class="mobile-nav-link text-white/70 text-lg font-display">Modern & Lyrical</a>
+    <a href="/acro-classes" class="mobile-nav-link text-white/70 text-lg font-display">Acro</a>
+    <a href="/street-dance" class="mobile-nav-link text-white/70 text-lg font-display">Street &amp; Commercial</a>
+    <a href="/musical-theatre" class="mobile-nav-link text-white/70 text-lg font-display">Musical Theatre &amp; Singing</a>
+    <a href="/timetable" class="mobile-nav-link text-white text-2xl font-display">Timetable</a>
+    <a href="/fees" class="mobile-nav-link text-white text-2xl font-display">Fees</a>
+    <a href="#proces" class="mobile-nav-link text-white text-2xl font-display">Joining</a>
+    <a href="#galleri" class="mobile-nav-link text-white text-2xl font-display">In the studio</a>
+    <a href="/gallery" class="mobile-nav-link text-white text-2xl font-display">Gallery</a>
+    <a href="#faq" class="mobile-nav-link text-white text-2xl font-display">FAQs</a>
+    <a href="/contact" class="mobile-nav-link text-white text-2xl font-display">Contact</a>
+    <a href="#" data-quote-trigger class="btn-primary mt-4 inline-block bg-brand text-white font-bold text-sm px-8 py-4 rounded-lg tracking-wide uppercase">Enquire now</a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- HERO                                          -->
+  <!-- ============================================ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center grain overflow-hidden pt-28 pb-20 lg:pt-0 lg:pb-0">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <picture>
+        <source media="(max-width: 640px)" srcset="brand-assets/hero-mobile.webp" width="504" height="672">
+        <img src="brand-assets/hero.webp" alt="A junior ballet class lined up along the barre in the Swinegate studio, lit in DancePointe's pink and purple" width="1584" height="672" class="w-full h-full object-cover" style="object-position:50% 42%" fetchpriority="high">
+      </picture>
+      <div class="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/50 to-dark/80"></div>
+    </div>
+
+    <!-- Content: two-column layout -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <!-- Left: headline + text -->
+      <div class="text-left" style="align-self: flex-start">
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-6" data-animate>Dance school in Grantham, Lincolnshire</p>
+        <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.5)" data-animate>
+          Live your passion<br class="hidden lg:block"> for dance
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl max-w-lg mb-10 leading-relaxed" style="text-shadow: 0 2px 12px rgba(0,0,0,0.6)" data-animate>
+          A dance school for everyone. Ballet, modern, contemporary, tap, street, acrobatics and musical theatre, from a first class at two and a half through to pre-vocational and pre-professional training. Studios on Swinegate, in the middle of Grantham.
+        </p>
+        <div class="flex items-start" data-animate>
+          <a href="#galleri" class="btn-outline border-2 border-white/30 text-white font-bold text-sm px-8 py-4 rounded-lg tracking-wide uppercase">
+            See the styles
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: lead capture form (GHL embed), wrapped so form_embed.js hijacks this div, not the grid container. -->
+      <div class="w-full" style="align-self: flex-start">
+        <form class="enquiry-form bg-white rounded-2xl shadow-2xl shadow-black/30 p-8 lg:p-9 "
+        action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="809cf1cc-5346-49d9-9f20-389acff63120">
+        <input type="hidden" name="subject" value="New class enquiry from dancepointegrantham.com">
+        <input type="hidden" name="from_name" value="DancePointe website">
+        <!-- honeypot: real people never fill this in -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important" aria-hidden="true">
+        <div class="fields">
+          <p class="font-display text-ink text-2xl mb-1">Ask about a class</p>
+          <p class="text-muted text-sm mb-6 leading-relaxed">Tell us the age and what they fancy trying. Rosie will come back to you with the class and level she would suggest.</p>
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-name">Your name</label>
+              <input id="ef-name" name="name" type="text" required autocomplete="name" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+            </div>
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-phone">Phone</label>
+              <input id="ef-phone" name="Phone" type="tel" required autocomplete="tel" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-email">Email</label>
+            <input id="ef-email" name="email" type="email" required autocomplete="email" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-age">Dancer's age</label>
+              <input id="ef-age" name="Dancer age" type="text" placeholder="e.g. 6, or 34" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+            </div>
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-style">Style</label>
+              <select id="ef-style" name="Style" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+                <option>Not sure yet, please advise</option>
+                <option>Ballet</option>
+                <option>Tap</option>
+                <option>Modern &amp; Lyrical</option>
+                <option>Acro</option>
+                <option>Street &amp; Commercial</option>
+                <option>Musical Theatre &amp; Singing</option>
+                <option>Adult classes</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-5">
+            <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-msg">Anything we should know?</label>
+            <textarea id="ef-msg" name="message" rows="3" placeholder="Previous experience, additional needs, days that work for you&hellip;" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full bg-brand text-white font-bold text-sm px-8 py-4 rounded-lg tracking-wide uppercase">Send enquiry</button>
+          <p class="text-muted text-xs mt-4 text-center leading-relaxed">Or just ring <a href="tel:+447515571655" class="text-brand font-medium hover:underline">07515 571655</a>. We read every message, but the phone is faster.</p>
+        </div>
+        <div class="error hidden text-center py-14">
+          <div class="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-5">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <p class="font-display text-ink text-2xl mb-2">That did not send.</p>
+          <p class="text-muted text-sm leading-relaxed">Something went wrong at our end. Please ring <a href="tel:+447515571655" class="text-brand font-medium hover:underline">07515 571655</a> instead, or try again in a moment.</p>
+          <button type="button" class="try-again mt-6 border-2 border-ink/15 text-ink font-bold text-xs px-6 py-3 rounded-lg tracking-wide uppercase hover:bg-cream transition-colors">Try again</button>
+        </div>
+        <div class="success hidden text-center py-14">
+          <div class="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-5">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <p class="font-display text-ink text-2xl mb-2">Thank you. That&rsquo;s with us.</p>
+          <p class="text-muted text-sm leading-relaxed">Rosie will be in touch about the class and level.<br>If it&rsquo;s urgent, ring <a href="tel:+447515571655" class="text-brand font-medium hover:underline">07515 571655</a>.</p>
+        </div>
+      </form>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator absolute bottom-8 left-1/2 pointer-events-none">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TRUST BADGE STRIP                             -->
+  <!-- ============================================ -->
+  <section class="bg-white border-b border-gray-100 py-6 md:py-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <div>
+            <p class="font-medium text-ink text-sm leading-tight">Ages 2.5 to adult</p>
+            <p class="text-muted text-xs leading-tight">first class to pre-professional</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <div>
+            <p class="font-medium text-ink text-sm leading-tight">A faculty of six</p>
+            <p class="text-muted text-xs leading-tight hidden sm:block">West End, Bristol Old Vic, Central School of Ballet</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <div>
+            <p class="font-medium text-ink text-sm leading-tight">Graded exam classes</p>
+            <p class="text-muted text-xs leading-tight">in ballet, tap and modern</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 justify-center md:justify-start">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <div>
+            <p class="font-medium text-ink text-sm leading-tight">An annual show</p>
+            <p class="text-muted text-xs leading-tight">on the Guildhall stage</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ABOUT                                         -->
+  <!-- ============================================ -->
+  <section id="om-os" class="section-pad bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <!-- Image -->
+        <div class="relative" data-animate>
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-dark/10">
+            <img src="brand-assets/about.webp" alt="A ballet class at the barre in a bright studio" width="1170" height="1560" loading="lazy" decoding="async" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div data-animate>
+          <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">The school</p>
+          <h2 class="font-display text-ink text-4xl md:text-5xl leading-[1.15] mb-6">
+            A dance school<br>for everyone
+          </h2>
+          <p class="text-muted text-lg leading-relaxed mb-6">
+            DancePointe is Rosie Johnson's school. Rosie trained in the East Midlands in Classical Ballet, Modern Theatre, Jazz, Tap and Acrobatic arts, performed, took her teaching qualifications, and then set up her own school in Grantham. She still teaches, coaches and choreographs here every week.
+          </p>
+          <p class="text-muted text-lg leading-relaxed mb-6">
+            We teach from 2.5 years to adult, across a range of levels, from the complete beginner to the pre-vocational and pre-professional student. Nobody is streamed by ambition. A child who wants one tap class on a Saturday morning gets the same teaching as a student working towards vocational school.
+          </p>
+          <p class="text-muted text-lg leading-relaxed mb-6">
+            Alongside her school, Rosie has worked with Lincolnshire County Council delivering children's speech therapy in local education authorities, helped develop a dance curriculum for children with additional needs that is now used in schools as part of PE, and choreographed Rock Challenge, pantomimes, showcases and GCSE examinations for schools across the area. She takes secondary school students for work experience.
+          </p>
+          <p class="text-muted text-lg leading-relaxed mb-10">
+            Students can take part in technique classes, dance competitions and festivals, as well as our annual show at the Guildhall Arts Centre. We offer the highest quality of training, encouraging every student to discover the joy of dance and to reach their full potential.
+          </p>
+
+          <!-- Stats -->
+          <div class="flex flex-wrap gap-x-12 gap-y-6">
+            <div>
+              <p class="font-display text-ink text-3xl">36</p>
+              <p class="text-muted text-sm mt-1">classes every week</p>
+            </div>
+            <div>
+              <p class="font-display text-ink text-3xl">7</p>
+              <p class="text-muted text-sm mt-1">styles taught</p>
+            </div>
+            <div>
+              <p class="font-display text-ink text-3xl">2.5+</p>
+              <p class="text-muted text-sm mt-1">years old and up</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FACULTY                                       -->
+  <!-- ============================================ -->
+  <section id="faculty" class="section-pad bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">The faculty</p>
+        <h2 class="font-display text-ink text-4xl md:text-5xl leading-[1.15] max-w-3xl mx-auto">
+          Six teachers, and between them<br class="hidden md:block"> a great deal of stage
+        </h2>
+        <p class="text-muted text-lg leading-relaxed mt-6 max-w-2xl mx-auto">DancePointe has an exceptional faculty who are committed to providing the very highest standard of dance tuition. This is who your child will actually be taught by.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-animate-stagger>
+        <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden" data-faculty="rosie-johnson">
+          <img src="brand-assets/faculty-rosie-johnson.webp" alt="Rosie Johnson, School Principal and Studio Owner at DancePointe" width="736" height="981" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;display:block">
+          <div class="p-8">
+            <p class="font-display text-ink text-2xl leading-tight">Rosie Johnson</p>
+            <p class="text-brand text-sm font-medium tracking-[0.16em] uppercase mt-2 mb-4">School Principal &amp; Studio Owner</p>
+            <p class="text-muted text-base leading-relaxed">Trained in the East Midlands in Classical Ballet, Modern Theatre, Jazz, Tap and Acrobatic arts. Performed, qualified as a teacher, then founded DancePointe. Helped develop a dance curriculum for children with additional needs now used in schools as part of PE, and has choreographed Rock Challenge, pantomimes and GCSE examinations for schools across the area. In the festival movement since she was a child.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden" data-faculty="gail-gordon">
+          <img src="brand-assets/faculty-gail-gordon.webp" alt="Gail Gordon, who teaches ballet and private coaching at DancePointe" width="736" height="981" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;display:block">
+          <div class="p-8">
+            <p class="font-display text-ink text-2xl leading-tight">Gail Gordon</p>
+            <p class="text-brand text-sm font-medium tracking-[0.16em] uppercase mt-2 mb-4">Ballet &amp; Private Coaching</p>
+            <p class="text-muted text-base leading-relaxed">A performance career as a dancer and solo acrobatic act, then professional choreographer in London&rsquo;s West End, and Head of Dance and Movement at Bristol Old Vic Theatre School for over thirty years. Now Dance Director for Chantry Dance Company and Associate Director of Chantry School of Contemporary &amp; Balletic Arts.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden" data-faculty="elizabeth-haslam">
+          <img src="brand-assets/faculty-elizabeth-haslam.webp" alt="Elizabeth Haslam, who teaches ballet, tap and jazz at DancePointe" width="736" height="981" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;display:block">
+          <div class="p-8">
+            <p class="font-display text-ink text-2xl leading-tight">Elizabeth Haslam</p>
+            <p class="text-brand text-sm font-medium tracking-[0.16em] uppercase mt-2 mb-4">Ballet, Tap, Jazz</p>
+            <p class="text-muted text-base leading-relaxed">Graduated from Central School of Ballet and performed with Northern Ballet Theatre, then corps de ballet in <em>Aida</em> with the Royal Philharmonic Orchestra and soloist in <em>Vis av Magi</em> in Norway. Former head of ballet at the Midlands School of Dance and Drama, and original ballet mistress to Ballet Theatre UK, where she spent nine years.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden" data-faculty="beth-warrick">
+          <img src="brand-assets/faculty-beth-warrick.webp" alt="Beth Warrick, who teaches street and commercial dance at DancePointe" width="736" height="981" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;display:block">
+          <div class="p-8">
+            <p class="font-display text-ink text-2xl leading-tight">Beth Warrick</p>
+            <p class="text-brand text-sm font-medium tracking-[0.16em] uppercase mt-2 mb-4">Street, Commercial</p>
+            <p class="text-muted text-base leading-relaxed">Dancer and singer on UK and European touring productions including <em>Vampires Rock</em>, <em>Anything for Love</em>, <em>Rule the World</em> and <em>Masters of the Scene</em>. Lead vocalist with bands and shows around the world, model for Toni &amp; Guy, L&rsquo;Or&eacute;al and K&eacute;rastase hair shows, and in pantomime almost every year for twelve years. Also a choreographer, and runs her own competitive cheerleading programme.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden" data-faculty="anita-harvey-warne">
+          <img src="brand-assets/faculty-anita-harvey-warne.webp" alt="Anita Harvey-Warne, who teaches contemporary at DancePointe" width="736" height="981" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;display:block">
+          <div class="p-8">
+            <p class="font-display text-ink text-2xl leading-tight">Anita Harvey-Warne</p>
+            <p class="text-brand text-sm font-medium tracking-[0.16em] uppercase mt-2 mb-4">Contemporary</p>
+            <p class="text-muted text-base leading-relaxed">Contemporary dancer, choreographer, and co-founder and co-artistic director of RESET Dance Company in the Midlands. Deeply committed to inclusion, diversity and acceptance in her work. Has collaborated with Parkour Circle, Tom Dale and Spiltmilk Dance, where she was an Early Career Performer Trainee on the Autumn 2023 tour of <em>Desert Island Flicks</em>.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden" data-faculty="elaine-bishop">
+          <img src="brand-assets/faculty-elaine-bishop.webp" alt="Elaine Bishop, who teaches singing and musical theatre at DancePointe" width="736" height="981" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;display:block">
+          <div class="p-8">
+            <p class="font-display text-ink text-2xl leading-tight">Elaine Bishop</p>
+            <p class="text-brand text-sm font-medium tracking-[0.16em] uppercase mt-2 mb-4">Singing / Musical Theatre</p>
+            <p class="text-muted text-base leading-relaxed">Experienced singing teacher, mezzo-soprano and award-winning musical director, based in Grantham. Built a reputation at the International Gilbert and Sullivan Festival and performed with professional opera companies. Credits include <em>Cantata Eliensis</em>, <em>HMS Pinafore</em> for Raymond Gubbay Productions, <em>Trial by Jury</em> and <em>Utopia</em>. Chairperson of Grantham Operatic Society.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICES                                      -->
+  <!-- ============================================ -->
+  <section id="ydelser" class="section-pad bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">Classes</p>
+        <h2 class="font-display text-ink text-4xl md:text-5xl leading-[1.15]">
+          Seven styles under one roof
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-animate-stagger>
+        <!-- Card 1: Ballet -->
+        <a href="/ballet-classes" class="service-card bg-white rounded-2xl block overflow-hidden hover:shadow-lg transition-shadow" data-class="ballet-classes">
+          <div class="p-8">
+            <div class="class-icon bg-brand/10 flex items-center justify-center mb-6" style="width:72px;height:72px;border-radius:16px;flex-shrink:0">
+              <img src="brand-assets/icons/ballet.png" alt="" aria-hidden="true" width="160" height="216" loading="lazy" decoding="async" style="width:40px;height:54px;display:block">
+            </div>
+            <h3 class="font-display text-ink text-xl mb-3">Ballet</h3>
+            <p class="text-muted leading-relaxed">Classical ballet from Intro Ballet at 2.5, through the graded syllabus, to Pre-Vocational 1 and Pre-Vocational Advanced 2. Taught by a Central School of Ballet graduate and a former Head of Dance at Bristol Old Vic Theatre School.</p>
+          </div>
+        </a>
+
+        <!-- Card 2: Tap -->
+        <a href="/tap-classes" class="service-card bg-white rounded-2xl block overflow-hidden hover:shadow-lg transition-shadow" data-class="tap-classes">
+          <div class="p-8">
+            <div class="class-icon bg-brand/10 flex items-center justify-center mb-6" style="width:72px;height:72px;border-radius:16px;flex-shrink:0">
+              <img src="brand-assets/icons/tap.png" alt="" aria-hidden="true" width="137" height="216" loading="lazy" decoding="async" style="width:34px;height:54px;display:block">
+            </div>
+            <h3 class="font-display text-ink text-xl mb-3">Tap</h3>
+            <p class="text-muted leading-relaxed">Primary Tap, Grades 1 to 6 and Advanced Tap. Rhythm, clarity and sound, taught properly from the first shuffle. The style most of our students keep for life.</p>
+          </div>
+        </a>
+
+        <!-- Card 3: Modern &amp; Lyrical -->
+        <a href="/modern-and-lyrical" class="service-card bg-white rounded-2xl block overflow-hidden hover:shadow-lg transition-shadow" data-class="modern-and-lyrical">
+          <div class="p-8">
+            <div class="class-icon bg-brand/10 flex items-center justify-center mb-6" style="width:72px;height:72px;border-radius:16px;flex-shrink:0">
+              <img src="brand-assets/icons/modern-and-lyrical.png" alt="" aria-hidden="true" width="141" height="216" loading="lazy" decoding="async" style="width:35px;height:54px;display:block">
+            </div>
+            <h3 class="font-display text-ink text-xl mb-3">Modern &amp; Lyrical</h3>
+            <p class="text-muted leading-relaxed">Graded Modern from Grade 1 to Advanced 2, an Inter Modern exam class, and Lyrical at Inter, Senior and Advanced level. Contemporary work sits here too.</p>
+          </div>
+        </a>
+
+        <!-- Card 4: Acro -->
+        <a href="/acro-classes" class="service-card bg-white rounded-2xl block overflow-hidden hover:shadow-lg transition-shadow" data-class="acro-classes">
+          <div class="p-8">
+            <div class="class-icon bg-brand/10 flex items-center justify-center mb-6" style="width:72px;height:72px;border-radius:16px;flex-shrink:0">
+              <img src="brand-assets/icons/acro.png" alt="" aria-hidden="true" width="112" height="216" loading="lazy" decoding="async" style="width:28px;height:54px;display:block">
+            </div>
+            <h3 class="font-display text-ink text-xl mb-3">Acro</h3>
+            <p class="text-muted leading-relaxed">Junior, Inter and Senior Acro, then Advanced Acro 1 and 2. Strength, flexibility and controlled tricks, built up in the right order rather than rushed.</p>
+          </div>
+        </a>
+
+        <!-- Card 5: Street &amp; Commercial -->
+        <a href="/street-dance" class="service-card bg-white rounded-2xl block overflow-hidden hover:shadow-lg transition-shadow" data-class="street-dance">
+          <div class="p-8">
+            <div class="class-icon bg-brand/10 flex items-center justify-center mb-6" style="width:72px;height:72px;border-radius:16px;flex-shrink:0">
+              <img src="brand-assets/icons/street-dance.png" alt="" aria-hidden="true" width="174" height="216" loading="lazy" decoding="async" style="width:44px;height:54px;display:block">
+            </div>
+            <h3 class="font-display text-ink text-xl mb-3">Street &amp; Commercial</h3>
+            <p class="text-muted leading-relaxed">Junior, Inter and Senior Street with Beth Warrick, who has danced and sung on UK and European tours, twelve years of pantomime, and hair shows for Toni &amp; Guy and L&rsquo;Or&eacute;al.</p>
+          </div>
+        </a>
+
+        <!-- Card 6: Musical Theatre &amp; Singing -->
+        <a href="/musical-theatre" class="service-card bg-white rounded-2xl block overflow-hidden hover:shadow-lg transition-shadow" data-class="musical-theatre">
+          <div class="p-8">
+            <div class="class-icon bg-brand/10 flex items-center justify-center mb-6" style="width:72px;height:72px;border-radius:16px;flex-shrink:0">
+              <img src="brand-assets/icons/musical-theatre.png" alt="" aria-hidden="true" width="124" height="216" loading="lazy" decoding="async" style="width:31px;height:54px;display:block">
+            </div>
+            <h3 class="font-display text-ink text-xl mb-3">Musical Theatre &amp; Singing</h3>
+            <p class="text-muted leading-relaxed">Stage &amp; Song, Junior Musical Theatre and Senior Musical. Singing taught by an award-winning musical director and the chairperson of Grantham Operatic Society.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PROCESS                                       -->
+  <!-- ============================================ -->
+  <section id="proces" class="section-pad bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">Joining us</p>
+        <h2 class="font-display text-ink text-4xl md:text-5xl leading-[1.15]">
+          From your first phone call<br>to your first class
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 relative" data-animate-stagger>
+        <!-- Connector line (desktop only) -->
+        <div class="hidden lg:block absolute top-[20px] left-[12.5%] right-[12.5%] h-[1px] bg-gradient-to-r from-amber/20 via-amber/40 to-amber/20"></div>
+
+        <!-- Step 1 -->
+        <div class="relative text-center">
+          <div class="w-10 h-10 rounded-full bg-brand text-white font-body text-sm font-bold flex items-center justify-center mx-auto mb-6 relative z-10 shadow-md shadow-brand/20">1</div>
+          <h3 class="font-display text-ink text-lg mb-2">Get in touch</h3>
+          <p class="text-muted text-sm leading-relaxed">Call 07515 571655 or send the form. Tell us the age, and which styles they fancy trying. If you have no idea, say that instead. Most people do.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative text-center">
+          <div class="w-10 h-10 rounded-full bg-brand text-white font-body text-sm font-bold flex items-center justify-center mx-auto mb-6 relative z-10 shadow-md shadow-brand/20">2</div>
+          <h3 class="font-display text-ink text-lg mb-2">Rosie places the level</h3>
+          <p class="text-muted text-sm leading-relaxed">Every student is placed by the School Principal, not by age alone. Rosie will talk it through and recommend the class and level that will benefit your dancer most.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative text-center">
+          <div class="w-10 h-10 rounded-full bg-brand text-white font-body text-sm font-bold flex items-center justify-center mx-auto mb-6 relative z-10 shadow-md shadow-brand/20">3</div>
+          <h3 class="font-display text-ink text-lg mb-2">Come and dance</h3>
+          <p class="text-muted text-sm leading-relaxed">Turn up at 5 Swinegate for the class we have agreed. Something they can move in is plenty to start with. Uniform and shoes can wait until you know it has stuck.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative text-center">
+          <div class="w-10 h-10 rounded-full bg-brand text-white font-body text-sm font-bold flex items-center justify-center mx-auto mb-6 relative z-10 shadow-md shadow-brand/20">4</div>
+          <h3 class="font-display text-ink text-lg mb-2">Go as far as you want</h3>
+          <p class="text-muted text-sm leading-relaxed">Add styles, work towards graded exams, be invited into the competitive team, dance in the annual show. Or keep the one class you love. Both are fine here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA BANNER                                    -->
+  <!-- ============================================ -->
+  <section class="relative py-24 px-6 bg-dark grain overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand blur-[128px]"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-brand blur-[96px]"></div>
+    </div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center" data-animate>
+      <h2 class="font-display text-white text-3xl md:text-5xl leading-[1.15] mb-6">
+        Thinking about a class?<br>Ask us anything.
+      </h2>
+      <p class="text-white/60 text-lg mb-10">Call 07515 571655 and speak to Rosie, or send the form and we will come back to you with the class and level we would suggest.</p>
+      <a href="tel:+447515571655" class="btn-primary inline-flex items-center justify-center gap-2 bg-brand text-white font-bold text-sm px-8 py-4 rounded-lg tracking-wide uppercase">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call the studio
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- GALLERY                                       -->
+  <!-- ============================================ -->
+  <section id="galleri" class="section-pad bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">In the studio</p>
+        <h2 class="font-display text-ink text-4xl md:text-5xl leading-[1.15]">
+          The styles we teach
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3" data-animate>
+        <div class="gallery-item aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+          <img src="brand-assets/gallery-1.webp" alt="Corps de ballet in white tutus on stage, the classical repertoire our graded ballet students train towards" width="1200" height="900" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover">
+        </div>
+        <div class="gallery-item aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+          <img src="brand-assets/gallery-2.webp" alt="A row of pointe shoes on a studio floor, the end of the pre-vocational ballet road" width="1200" height="900" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover">
+        </div>
+        <div class="gallery-item aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+          <img src="brand-assets/gallery-3.webp" alt="Two contemporary dancers in a floor-work lift, the kind of partnering our lyrical and contemporary students build up to" width="1200" height="900" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover">
+        </div>
+        <div class="gallery-item aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+          <img src="brand-assets/gallery-4.webp" alt="A street dancer mid-freeze in front of a crowd, the discipline taught in our Junior, Inter and Senior Street classes" width="1200" height="900" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover">
+        </div>
+        <div class="gallery-item aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+          <img src="brand-assets/gallery-5.webp" alt="A controlled handstand held in a bright studio, the balance work at the centre of our Acro classes" width="1200" height="900" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover">
+        </div>
+        <div class="gallery-item aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+          <img src="brand-assets/gallery-6.webp" alt="Dancers taking a curtain call under stage lights, as our whole school does each year at the Guildhall" width="1200" height="900" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4">
+    <button class="lightbox-close absolute top-6 right-6 text-white/60 hover:text-white transition-colors" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lightbox-prev absolute left-4 md:left-8 text-white/60 hover:text-white transition-colors" aria-label="Previous">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lightbox-next absolute right-4 md:right-8 text-white/60 hover:text-white transition-colors" aria-label="Next">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <img class="lightbox-img max-w-full max-h-[85vh] rounded-lg object-contain" src="" alt="">
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ANMELDELSER                                   -->
+  <!-- ============================================ -->
+  <section id="track-record" class="section-pad bg-dark relative grain overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand blur-[200px]"></div>
+    </div>
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-12" data-animate>
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">Track record</p>
+        <h2 class="font-display text-white text-4xl md:text-5xl leading-[1.15]">
+          From Swinegate to the<br class="hidden md:block"> Dance World Cup
+        </h2>
+      </div>
+
+            <div class="grid lg:grid-cols-3 gap-6" data-animate-stagger>
+        <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-8">
+          <p class="font-display text-white text-4xl mb-1">2023</p>
+          <p class="text-brand text-xs font-medium tracking-[0.18em] uppercase mb-4">Dance World Cup finals</p>
+          <p class="text-white/60 text-sm leading-relaxed">A DancePointe student trained here by Rosie represented Team England at the Dance World Cup finals in Portugal, placing 4th in ballet repertoire, 7th in modern and 8th in lyrical against a field of roughly 7,500 dancers. DancePointe families raised &pound;400 towards the trip.</p>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-8">
+          <p class="font-display text-white text-4xl mb-1">Every year</p>
+          <p class="text-brand text-xs font-medium tracking-[0.18em] uppercase mb-4">On the Guildhall stage</p>
+          <p class="text-white/60 text-sm leading-relaxed">The whole school performs an annual show at the Guildhall Arts Centre in Grantham. <em>Dance Dynamics</em>, <em>Dance Spectacular</em>, <em>In The Spotlight</em>, <em>A Dance Celebration</em> and <em>United in Dance</em> have all played there. Every student who wants to be in it is in it.</p>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-8">
+          <p class="font-display text-white text-4xl mb-1">All year</p>
+          <p class="text-brand text-xs font-medium tracking-[0.18em] uppercase mb-4">On the festival circuit</p>
+          <p class="text-white/60 text-sm leading-relaxed">Our competitive team dances the festival circuit through the year, most recently at the Nottingham Dance Festival. Places on the team are by invitation from the School Principal, on commitment and proficiency, not on request.</p>
+        </div>
+      </div>
+
+      <p class="text-white/40 text-sm text-center mt-10 max-w-2xl mx-auto leading-relaxed">Everything on this page is something you can check. We would rather point you at the Guildhall listings and the festival results than write our own testimonials.</p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FAQs                                           -->
+  <!-- ============================================ -->
+  <section id="faq" class="section-pad bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">Questions parents ask</p>
+        <h2 class="font-display text-ink text-4xl md:text-5xl leading-[1.15]">
+          The things parents actually ask
+        </h2>
+      </div>
+
+      <div class="space-y-3" data-animate>
+        <!-- FAQs 1 -->
+        <div class="faq-item bg-white rounded-2xl border border-brand/10 shadow-sm shadow-dark/[0.03]">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-medium text-ink text-lg pr-4">What styles of dance do you offer?</span>
+            <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-muted leading-relaxed pb-5">Classical Ballet, Modern, Contemporary, Tap, Street, Acrobatics and Musical Theatre, with singing taught alongside the musical theatre classes. Lyrical runs at Inter, Senior and Advanced level. Most students start with one or two styles and add more as they go.</p>
+          </div>
+        </div>
+
+        <!-- FAQs 3 -->
+        <div class="faq-item bg-white rounded-2xl border border-brand/10 shadow-sm shadow-dark/[0.03]">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-medium text-ink text-lg pr-4">What ages do you teach?</span>
+            <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-muted leading-relaxed pb-5">We teach children from 2.5 years old, and we teach adults. Intro Ballet & Tap on a Saturday morning is where the youngest dancers start. Please ring to check what is currently running for adults, as the adult timetable moves around more than the children's does.</p>
+          </div>
+        </div>
+
+        <!-- FAQs 4 -->
+        <div class="faq-item bg-white rounded-2xl border border-brand/10 shadow-sm shadow-dark/[0.03]">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-medium text-ink text-lg pr-4">What level class should we attend?</span>
+            <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-muted leading-relaxed pb-5">We offer classes for all levels. Please consult with the School Principal, who will advise you which level class to attend and ensure that you are placed in a level which will benefit you the most. Nobody is put in a class on age alone.</p>
+          </div>
+        </div>
+
+        <!-- FAQs 5 -->
+        <div class="faq-item bg-white rounded-2xl border border-brand/10 shadow-sm shadow-dark/[0.03]">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-medium text-ink text-lg pr-4">I would like to do dance competitions. How can I get involved?</span>
+            <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-muted leading-relaxed pb-5">To be invited to join the school's competitive team, students are required to demonstrate a high level of commitment to dance and a specific level of proficiency. The School Principal will invite students to take part who have the appropriate level. We compete on the festival circuit through the year, most recently at the Nottingham Dance Festival.</p>
+          </div>
+        </div>
+
+        <!-- FAQs 6 -->
+        <div class="faq-item bg-white rounded-2xl border border-brand/10 shadow-sm shadow-dark/[0.03]">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-medium text-ink text-lg pr-4">Do you do shows?</span>
+            <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-muted leading-relaxed pb-5">Yes. Each year we present an annual show which involves the entire school, staged at the Guildhall Arts Centre in Grantham. Past shows include Dance Dynamics, Dance Spectacular, In The Spotlight, A Dance Celebration and United in Dance. Every student who wants to be in it is in it.</p>
+          </div>
+        </div>
+
+        <!-- FAQs 7 -->
+        <div class="faq-item bg-white rounded-2xl border border-brand/10 shadow-sm shadow-dark/[0.03]">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-medium text-ink text-lg pr-4">What do classes cost?</span>
+            <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-muted leading-relaxed pb-5">One class a week is £25 a month by standing order over twelve months. Two classes are £38, three are £57, and it rises by £19 for each class after that, up to £209 for eleven. Anything you take beyond eleven classes is free. Paying by term costs more. The full tables are on the timetable and fees page.</p>
+          </div>
+        </div>
+
+        <!-- FAQs 8 -->
+        <div class="faq-item bg-white rounded-2xl border border-brand/10 shadow-sm shadow-dark/[0.03]">
+          <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-medium text-ink text-lg pr-4">Where are you, and when do classes run?</span>
+            <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-muted leading-relaxed pb-5">5 Swinegate, Grantham NG31 6RJ, in the middle of town. Weekday classes run from 4.00pm, Saturday classes run from 9.00am, and there are no Sunday classes. The full week is on the timetable and fees page.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICE AREAS                                 -->
+  <!-- ============================================ -->
+  <section id="omraader" class="py-20 px-6 bg-dark relative grain overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand blur-[200px]"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <div class="text-center mb-12" data-animate>
+        <p class="text-brand font-medium text-sm tracking-[0.2em] uppercase mb-4">Where our families come from</p>
+        <h2 class="font-display text-white text-4xl md:text-5xl leading-[1.15]">
+          Grantham, and the villages<br>that dance here
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" data-animate>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Barrowby</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Grantham</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Claypole</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Caythorpe</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Belton</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Harlaxton</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Denton</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Great Gonerby</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Long Bennington</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Bottesford</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Sedgebrook</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Woolsthorpe-by-Belvoir</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Ancaster</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Colsterworth</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Corby Glen</span>
+        </div>
+        <div class="bg-white/[0.06] border border-white/10 rounded-lg px-5 py-3 text-center">
+          <span class="text-white font-medium text-sm">Sleaford</span>
+        </div>
+      </div>
+
+      <p class="text-white/40 text-sm text-center mt-8 mb-12">Families also travel in from Newark, Melton Mowbray, Bourne and Stamford. If you are not sure the run works, call 07515 571655 and we will talk it through.</p>
+
+      <!-- Interactive coverage map (native Google pin, stays locked through pan/zoom) -->
+      <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/30 border border-white/10" data-animate>
+        <iframe
+          src="https://www.google.com/maps?q=52.9124,-0.6406&z=10&output=embed&hl=en"
+          width="100%"
+          height="400"
+          style="border:0; display:block; filter: saturate(0.8) contrast(1.05);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="DancePointe - Where our families come from i south Lincolnshire">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER                                        -->
+  <!-- ============================================ -->
+  <footer class="bg-dark text-white/70 pt-20 pb-8 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Col 1: Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-5">
+            <img src="/brand-assets/logo-mark.png" alt="DancePointe Grantham" width="204" height="208" loading="lazy" class="w-auto" style="height: 52px; filter: brightness(0) invert(1);">
+            <span class="leading-none">
+              <span class="block font-bold text-white text-lg tracking-[0.14em] uppercase">DancePointe</span>
+              <span class="block text-white/50 text-[10px] tracking-[0.32em] uppercase mt-0.5">Grantham</span>
+            </span>
+          </div>
+          <p class="text-sm leading-relaxed mb-6 mt-2">Grantham's premier dance school.<br>Ballet, tap, modern, contemporary,<br>street, acro and musical theatre.<br>Ages 2.5 to adult.</p>
+          <!-- Social -->
+          <a href="https://www.instagram.com/dancepointegrantham/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm hover:text-brand transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @dancepointegrantham
+          </a>
+          <a href="https://www.facebook.com/dancepointegrantham/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm hover:text-brand transition-colors mt-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+            DancePointe
+          </a>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <p class="font-medium text-white text-sm uppercase tracking-wider mb-4">Navigation</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="/#om-os" class="hover:text-brand transition-colors">The school</a></li>
+            <li><a href="/#ydelser" class="hover:text-brand transition-colors">Classes</a></li>
+            <li><a href="/timetable" class="hover:text-brand transition-colors">Timetable</a></li>
+            <li><a href="/fees" class="hover:text-brand transition-colors">Fees</a></li>
+            <li><a href="/#proces" class="hover:text-brand transition-colors">Joining</a></li>
+            <li><a href="/#galleri" class="hover:text-brand transition-colors">In the studio</a></li>
+            <li><a href="/gallery" class="hover:text-brand transition-colors">Gallery</a></li>
+            <li><a href="/#faq" class="hover:text-brand transition-colors">FAQs</a></li>
+            <li><a href="/contact" class="hover:text-brand transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <p class="font-medium text-white text-sm uppercase tracking-wider mb-4">Classes</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="/ballet-classes" class="hover:text-brand transition-colors">Ballet</a></li>
+            <li><a href="/tap-classes" class="hover:text-brand transition-colors">Tap</a></li>
+            <li><a href="/street-dance" class="hover:text-brand transition-colors">Street &amp; Commercial</a></li>
+            <li><a href="/musical-theatre" class="hover:text-brand transition-colors">Musical Theatre &amp; Singing</a></li>
+            <li><a href="/acro-classes" class="hover:text-brand transition-colors">Acro</a></li>
+            <li><a href="/modern-and-lyrical" class="hover:text-brand transition-colors">Modern & Lyrical</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div>
+          <p class="font-medium text-white text-sm uppercase tracking-wider mb-4">Contact</p>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="tel:+447515571655" class="hover:text-brand transition-colors">07515 571655</a>
+            </li>
+            <li><a href="mailto:info@dancepointegrantham.com" class="hover:text-brand transition-colors">info@dancepointegrantham.com</a></li>
+            <li>5 Swinegate<br>NG31 6RJ Grantham</li>
+            <li><a href="/fees" class="hover:text-brand transition-colors">Fees</a></li>
+            <li class="pt-2 border-t border-white/10 mt-3">Weekdays 4.00pm&ndash;8.30pm<br>Saturdays 9.00am&ndash;4.30pm<br>No Sunday classes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Legal links -->
+      <div class="border-t border-white/10 pt-8 pb-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs">
+        <a href="/privacy-policy" class="text-white/60 hover:text-brand transition-colors">Privacy Policy</a>
+        <a href="/terms" class="text-white/60 hover:text-brand transition-colors">Terms & Conditions</a>
+        <a href="/cookie-policy" class="text-white/60 hover:text-brand transition-colors">Cookie Policy</a>
+        <a href="/review" class="text-white/60 hover:text-brand transition-colors">Leave a review</a>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-white/40">
+        <p>&copy; 2026 DancePointe. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT                                    -->
+  <!-- ============================================ -->
+  <script>
+    // ---- Scroll-triggered nav ----
+    const nav = document.querySelector('.nav-bar');
+
+    const toggleNavScrolled = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 0);
+    };
+    window.addEventListener('scroll', toggleNavScrolled, { passive: true });
+    toggleNavScrolled();
+
+    // ---- Mobile menu ----
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Only close for in-page anchors. On a real navigation the closing
+        // clip-path animation clips the link out from under the touch point
+        // before the browser follows it, which Safari reads as a cancelled tap.
+        // Close only when we are staying on this page: an in-page anchor, or a
+        // link to the page we are already on. For a real navigation, closing
+        // animates clip-path out from under the tap and Safari cancels it.
+        const href = link.getAttribute('href') || '';
+        let samePage = false;
+        try { samePage = new URL(href, location.href).pathname === location.pathname; }
+        catch (e) { samePage = href.charAt(0) === '#'; }
+        if (!samePage) return;
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ---- Smooth scroll with nav offset ----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const id = anchor.getAttribute('href');
+        if (id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        const offset = 80;
+        const y = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    });
+
+    // ---- Scroll animations ----
+    const animateObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          animateObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-animate], [data-animate-stagger]').forEach(el => {
+      animateObserver.observe(el);
+    });
+
+    // ---- FAQs accordion ----
+    document.querySelectorAll('.faq-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const chevron = item.querySelector('.faq-chevron');
+        const isOpen = answer.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotated'));
+
+        // Open clicked (if was closed)
+        if (!isOpen) {
+          answer.classList.add('open');
+          chevron.classList.add('rotated');
+        }
+      });
+    });
+
+    // ---- Lightbox ----
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    let currentIndex = 0;
+
+    const images = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    galleryItems.forEach((item, i) => {
+      item.addEventListener('click', () => openLightbox(i));
+    });
+
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex];
+    });
+    document.querySelector('.lightbox-next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex];
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + images.length) % images.length; lightboxImg.src = images[currentIndex]; }
+      if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % images.length; lightboxImg.src = images[currentIndex]; }
+    });
+
+  </script>
+
+  <!-- Cookie consent banner styling -->
+  <style>
+    .cookie-banner {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cookie-banner.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- Cookie consent banner (must be in DOM before the init script below) -->
+  <div id="cookie-banner" class="cookie-banner hidden fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md z-[90] bg-white rounded-xl shadow-2xl border border-gray-200 p-6">
+    <h3 class="font-display text-ink text-lg mb-2">We use cookies</h3>
+    <p class="text-muted text-sm leading-relaxed mb-4">
+      We use cookies to keep the site working and to understand how people find us. You can read more in our <a href="/cookie-policy" class="text-brand underline hover:text-brand/80 transition-colors">cookie policy</a>.
+    </p>
+    <div class="flex gap-2">
+      <button id="cookie-accept" class="flex-1 bg-brand text-white font-bold text-xs px-4 py-3 rounded-lg tracking-wide uppercase hover:bg-brand/90 transition-colors">Accept</button>
+      <button id="cookie-decline" class="flex-1 border border-gray-300 text-ink font-bold text-xs px-4 py-3 rounded-lg tracking-wide uppercase hover:bg-gray-50 transition-colors">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    // ---- Cookie consent ----
+    const cookieBanner = document.getElementById('cookie-banner');
+    const COOKIE_KEY = 'dancepointe_cookie_consent';
+
+    function getCookieConsent() {
+      try { return JSON.parse(localStorage.getItem(COOKIE_KEY)); } catch { return null; }
+    }
+
+    function setCookieConsent(choice) {
+      const data = { choice, timestamp: new Date().toISOString() };
+      localStorage.setItem(COOKIE_KEY, JSON.stringify(data));
+      if (choice === 'accepted') loadAnalytics();
+    }
+
+    function loadAnalytics() {
+      // Placeholder for Google Analytics - add gtag script here when ready
+      // Example:
+      // const s = document.createElement('script');
+      // s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      // s.async = true;
+      // document.head.appendChild(s);
+    }
+
+    if (!getCookieConsent()) {
+      cookieBanner.classList.remove('hidden');
+      requestAnimationFrame(() => cookieBanner.classList.add('visible'));
+    } else if (getCookieConsent()?.choice === 'accepted') {
+      loadAnalytics();
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      setCookieConsent('accepted');
+      cookieBanner.classList.remove('visible');
+      setTimeout(() => { cookieBanner.classList.add('hidden');  }, 300);
+    });
+
+    document.getElementById('cookie-decline').addEventListener('click', () => {
+      setCookieConsent('declined');
+      cookieBanner.classList.remove('visible');
+      setTimeout(() => { cookieBanner.classList.add('hidden');  }, 300);
+    });
+  </script>
+
+  <!-- Quote popup modal (GHL form) -->
+  <style>
+    #quote-modal {
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0.25s;
+    }
+    #quote-modal.is-closed {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    /* Override form_embed.js inline visibility:visible on the modal iframe when modal is closed.
+       Without this, the hidden iframe stays hit-testable and steals clicks from the hero form. */
+    #quote-modal.is-closed iframe,
+    #quote-modal.is-closed .ep-wrapper,
+    #quote-modal.is-closed .ep-iFrameContainer {
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    #quote-modal:not(.is-closed) { opacity: 1; visibility: visible; }
+    #quote-modal .quote-modal-inner {
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #quote-modal:not(.is-closed) .quote-modal-inner { transform: translateY(0) scale(1); }
+  </style>
+  <div id="quote-modal" class="is-closed fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+    <div class="quote-modal-inner relative bg-white rounded-2xl shadow-2xl w-full max-w-[576px] max-h-[92vh] overflow-y-auto">
+      <button id="quote-modal-close" class="absolute top-3 right-3 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 hover:bg-white text-ink shadow-md transition-colors" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <form class="enquiry-form bg-white rounded-2xl  p-8 lg:p-9 "
+        action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="809cf1cc-5346-49d9-9f20-389acff63120">
+        <input type="hidden" name="subject" value="New class enquiry from dancepointegrantham.com">
+        <input type="hidden" name="from_name" value="DancePointe website">
+        <!-- honeypot: real people never fill this in -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important" aria-hidden="true">
+        <div class="fields">
+          <p class="font-display text-ink text-2xl mb-1">Ask about a class</p>
+          <p class="text-muted text-sm mb-6 leading-relaxed">Tell us the age and what they fancy trying. Rosie will come back to you with the class and level she would suggest.</p>
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-name">Your name</label>
+              <input id="ef-name" name="name" type="text" required autocomplete="name" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+            </div>
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-phone">Phone</label>
+              <input id="ef-phone" name="Phone" type="tel" required autocomplete="tel" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-email">Email</label>
+            <input id="ef-email" name="email" type="email" required autocomplete="email" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-age">Dancer's age</label>
+              <input id="ef-age" name="Dancer age" type="text" placeholder="e.g. 6, or 34" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+            </div>
+            <div>
+              <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-style">Style</label>
+              <select id="ef-style" name="Style" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors">
+                <option>Not sure yet, please advise</option>
+                <option>Ballet</option>
+                <option>Tap</option>
+                <option>Modern &amp; Lyrical</option>
+                <option>Acro</option>
+                <option>Street &amp; Commercial</option>
+                <option>Musical Theatre &amp; Singing</option>
+                <option>Adult classes</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-5">
+            <label class="block text-ink text-xs font-medium uppercase tracking-wider mb-1.5" for="ef-msg">Anything we should know?</label>
+            <textarea id="ef-msg" name="message" rows="3" placeholder="Previous experience, additional needs, days that work for you&hellip;" class="w-full rounded-lg border border-gray-200 bg-cream/40 px-4 py-3 text-ink text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-colors"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full bg-brand text-white font-bold text-sm px-8 py-4 rounded-lg tracking-wide uppercase">Send enquiry</button>
+          <p class="text-muted text-xs mt-4 text-center leading-relaxed">Or just ring <a href="tel:+447515571655" class="text-brand font-medium hover:underline">07515 571655</a>. We read every message, but the phone is faster.</p>
+        </div>
+        <div class="error hidden text-center py-14">
+          <div class="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-5">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <p class="font-display text-ink text-2xl mb-2">That did not send.</p>
+          <p class="text-muted text-sm leading-relaxed">Something went wrong at our end. Please ring <a href="tel:+447515571655" class="text-brand font-medium hover:underline">07515 571655</a> instead, or try again in a moment.</p>
+          <button type="button" class="try-again mt-6 border-2 border-ink/15 text-ink font-bold text-xs px-6 py-3 rounded-lg tracking-wide uppercase hover:bg-cream transition-colors">Try again</button>
+        </div>
+        <div class="success hidden text-center py-14">
+          <div class="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-5">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A82468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <p class="font-display text-ink text-2xl mb-2">Thank you. That&rsquo;s with us.</p>
+          <p class="text-muted text-sm leading-relaxed">Rosie will be in touch about the class and level.<br>If it&rsquo;s urgent, ring <a href="tel:+447515571655" class="text-brand font-medium hover:underline">07515 571655</a>.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    // ---- Quote popup trigger ----
+    const quoteModal = document.getElementById('quote-modal');
+    const quoteModalClose = document.getElementById('quote-modal-close');
+
+    function openQuoteModal() {
+      const mm = document.querySelector('.mobile-menu');
+      const hb = document.querySelector('.hamburger');
+      if (mm && mm.classList.contains('open')) {
+        mm.classList.remove('open');
+        if (hb) hb.classList.remove('active');
+      }
+      quoteModal.classList.remove('is-closed');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeQuoteModal() {
+      quoteModal.classList.add('is-closed');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-quote-trigger]');
+      if (trigger) { e.preventDefault(); openQuoteModal(); }
+    });
+    quoteModalClose.addEventListener('click', closeQuoteModal);
+    quoteModal.addEventListener('click', (e) => { if (e.target === quoteModal) closeQuoteModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !quoteModal.classList.contains('is-closed')) closeQuoteModal();
+    });
+    // ---- Enquiry form: POST to Web3Forms, then swap to success or error ----
+    document.querySelectorAll('.enquiry-form').forEach((form) => {
+      const fields  = form.querySelector('.fields');
+      const success = form.querySelector('.success');
+      const failure = form.querySelector('.error');
+      const button  = form.querySelector('button[type="submit"]');
+      const label   = button ? button.textContent : '';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        if (button) { button.disabled = true; button.textContent = 'Sending\u2026'; }
+
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: new FormData(form)
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || data.success === false) throw new Error(data.message || 'send failed');
+          fields.classList.add('hidden');
+          failure.classList.add('hidden');
+          success.classList.remove('hidden');
+          form.reset();
+        } catch (err) {
+          fields.classList.add('hidden');
+          success.classList.add('hidden');
+          failure.classList.remove('hidden');
+        } finally {
+          if (button) { button.disabled = false; button.textContent = label; }
+        }
+      });
+
+      const retry = form.querySelector('.try-again');
+      if (retry) retry.addEventListener('click', () => {
+        failure.classList.add('hidden');
+        fields.classList.remove('hidden');
+      });
+    });
+  
+    // Mark the page we are on, in both the mobile menu and the desktop nav.
+    document.querySelectorAll('.mobile-nav-link, .nav-link').forEach(a => {
+      const h = a.getAttribute('href') || '';
+      try {
+        if (new URL(h, location.href).pathname === location.pathname && h.charAt(0) !== '#') {
+          a.setAttribute('aria-current', 'page');
+        }
+      } catch (e) {}
+    });
+  </script>
+</body>
+</html>
